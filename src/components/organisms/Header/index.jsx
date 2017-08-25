@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TopNav, DoubleSwitch } from '../../';
+import imgPath from '../../../../public/img/logo.jpg';
 
 const NavItem = styled.div`
   padding: 0 3%;
 `;
 const HomeLink = styled.a`
   text-decoration: none;
-  background: url('./img/logo.jpg') center center no-repeat;
+  background: url(${imgPath}) center center no-repeat;
   background-size: contain;
   display: block;
   width: 40px;

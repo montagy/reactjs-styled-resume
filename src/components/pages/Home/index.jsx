@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import i18n from '../../../i18n';
 import { PageTemplate } from '../../../components';
+import photoJpg from '../../../../public/img/photo.jpg';
 
 const Photo = styled.div`
   border-radius: 50%;
-  background-image: url(img/photo.jpg);
+  background-image: url(${photoJpg});
   background-size: contain;
   width: 150px;
   height: 150px;
