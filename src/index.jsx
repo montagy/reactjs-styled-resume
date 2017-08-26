@@ -13,7 +13,7 @@ html {
 html, body {
   height: 100%;
 }
-html, body, p, h1 {
+html, body, p, h1, ul {
   margin: 0;
 }
 ul {

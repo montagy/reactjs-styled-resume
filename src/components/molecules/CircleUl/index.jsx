@@ -19,16 +19,13 @@ const innerY = keyframes`
 `;
 const Wrapper = styled.ul`
   list-style: none;
-  margin: 0;
-  padding: 0;
   width: 142px;
   height: 142px;
   border: 4px dashed #999;
   border-radius: 50%;
-  position: absolute;
+  position: relative;
   text-align: center;
-  line-height: 50px;
-  transform: translateX(50px) translateY(50px);
+  transform: translate(50px, 50px);
   li {
     width: 40px;
     height: 40px;

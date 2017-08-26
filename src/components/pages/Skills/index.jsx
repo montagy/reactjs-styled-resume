@@ -1,39 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Title, CircleUl, BigCircleUl } from '../../';
+import { CircleUl, BigCircleUl } from '../../';
 import  FullPage  from '../../atoms/FullPage';
 
 const Wrapper = FullPage.extend`
-  width: 100%;
   color: #FFF;
+  font-size: 1em;
+  justify-content: flex-start;
+  & > header {
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    margin-top: 6em;
+    @media (max-width: 830px) {
+      margin-top: 2em;
+    }
+  }
 `;
 const Content = styled.div`
-  margin: 100px auto 0 auto;
-  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 const Circle = styled.div`
-  position: relative;
-  width: 300px;
+  padding-left: 5em;
+  @media (max-width: 830px) {
+    margin: 2em auto;
+    padding-left: 0;
+  }
 `;
-
+const ParaArea = styled.div`
+  position: relative;
+  margin-left: 6em;
+  font-size: 1.2em;
+  @media (max-width: 830px) {
+    margin: 2em auto;
+  }
+`;
 const Skills = ({ msg, ...props }) => {
   return (
     <Wrapper {...props}>
-      <Title top="70px">{msg.skills}</Title>
+      <header>{msg.skills}</header>
       <Content>
         <Circle>
           <BigCircleUl />
           <CircleUl />
         </Circle>
-        <div>
+        <ParaArea>
           <p>{msg.sk1}</p>
           <p>{msg.sk2}</p>
           <p>{msg.sk3}</p>
           <p>{msg.sk4}</p>
-        </div>
+        </ParaArea>
       </Content>
     </Wrapper>
   );

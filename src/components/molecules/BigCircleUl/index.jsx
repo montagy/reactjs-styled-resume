@@ -20,14 +20,13 @@ const outY = keyframes`
 `;
 const Wrapper = styled.ul`
   list-style: none;
-  margin: 0 auto;
-  padding: 0;
   width: 242px;
   height: 242px;
   border: 4px dashed #999;
   border-radius: 50%;
-  position: absolute;
+  position: relative;
   text-align: center;
+  float: right;
   li {
     width: 50px;
     height: 50px;
