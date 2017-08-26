@@ -50,10 +50,10 @@ const Info = styled.div`
 const About = ({ bgc, lang, ...props }) => {
   const msg = i18n[lang];
   const pics = [
-    'img/i_age.svg',
-    'img/i_edu.svg',
-    'img/i_site.svg',
-    'img/i_status.svg',
+    require('../../../../public/img/i_age.svg'),
+    require('../../../../public/img/i_edu.svg'),
+    require('../../../../public/img/i_site.svg'),
+    require('../../../../public/img/i_status.svg'),
   ];
   const words = [msg.age, msg.edu, msg.address, msg.status];
   const lis = pics.map((pic, i) =>

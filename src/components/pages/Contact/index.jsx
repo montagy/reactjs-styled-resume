@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Title } from '../../';
 import PageTemplate from '../../templates/PageTemplate';
-import imgGithub from '../../../../public/img/s_github.svg';
-import imgBlog from '../../../../public/img/s_blog.svg';
-import imgSf from '../../../../public/img/s_sf.svg';
-import imgWb from '../../../../public/img/s_wb.svg';
-import imgZh from '../../../../public/img/s_zh.svg';
 
 const Content = styled.div`
   margin: 30px auto 0 auto;
@@ -42,7 +37,14 @@ const paras = [
   '行路有良友，便是捷径',
   '带上我吧，一起看到更大的世界',
 ];
-const imgs = [imgGithub, imgSf, imgBlog, imgZh, imgWb];
+const imgs = [
+  require('../../../../public/img/s_github.svg'),
+  require('../../../../public/img/s_blog.svg'),
+  require('../../../../public/img/s_sf.svg'),
+  require('../../../../public/img/s_wb.svg'),
+  require('../../../../public/img/s_zh.svg'),
+];
+
 const Contact = ({ ...props }) => {
   const spans = titles.map((title, i) =>
     <Word key={i} color={titleColor[i]}>{title}</Word>,
