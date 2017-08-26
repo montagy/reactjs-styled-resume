@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { Header, SliderInstance, FixedNav } from '../components';
 import languages from '../i18n.js';

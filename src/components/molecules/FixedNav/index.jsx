@@ -14,26 +14,26 @@ const StyledUl = styled.ul`
   margin: 0;
 `;
 
-const pics = ['img/d_home.svg',
-  'img/d_info.svg',
-  'img/d_skills.svg',
-  'img/d_works.svg',
-  'img/d_contact.svg',
+const pics = [
+  require('../../../../public/img/d_home.svg'),
+  require('../../../../public/img/d_info.svg'),
+  require('../../../../public/img/d_skills.svg'),
+  require('../../../../public/img/d_works.svg'),
+  require('../../../../public/img/d_contact.svg'),
 ];
 const indicators = ['Home', 'About', 'Skills', 'Words', 'Concat'];
 
 const FixedNav = ({ index, handleClick, ...props }) => {
-  const lis = pics
-    .map((pic, i) => (
-      <HoverLi
-        key={i}
-        role="button"
-        active={i === index}
-        onClick={() => handleClick(i)}
-        image={pic}
-        indicator={indicators[i]}
-      />
-    ));
+  const lis = pics.map((pic, i) =>
+    <HoverLi
+      key={i}
+      role="button"
+      active={i === index}
+      onClick={() => handleClick(i)}
+      image={pic}
+      indicator={indicators[i]}
+    />,
+  );
   return (
     <Wrapper {...props}>
       <StyledUl>
