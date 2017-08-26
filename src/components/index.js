@@ -10,6 +10,7 @@ export DoubleSwitch from './molecules/DoubleSwitch';
 export FixedNav from './molecules/FixedNav';
 export HoverLi from './molecules/HoverLi';
 export TopNav from './molecules/TopNav';
+export Slider from './molecules/Slider';
 
 // organisms
 export Header from './organisms/Header';
@@ -21,9 +22,7 @@ export Exp from './pages/Exp';
 export Home from './pages/Home';
 export Skills from './pages/Skills';
 export Works from './pages/Works';
-
-// templates
-export SliderTemplate from './templates/SliderTemplate';
+export SliderInstance from './pages/SliderInstance';
 
 // App
 export App from './App';

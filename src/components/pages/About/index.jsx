@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FullPage, Title } from '../../';
-import i18n from '../../../i18n';
 
 const Content = styled.div`
   width: 100%;
@@ -47,8 +46,7 @@ const Info = styled.div`
   font-size: 18px;
   line-height: 24px;
 `;
-const About = ({ bgc, lang, ...props }) => {
-  const msg = i18n[lang];
+const About = ({ bgc, msg, ...props }) => {
   const pics = [
     require('../../../../public/img/i_age.svg'),
     require('../../../../public/img/i_edu.svg'),

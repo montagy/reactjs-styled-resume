@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Title } from '../../';
-import PageTemplate from '../../templates/PageTemplate';
+import FullPage from '../../atoms/FullPage';
 
-const Wrapper = PageTemplate.extend`
+const Wrapper = FullPage.extend`
   color: #FFF;
 `;
 const Content = styled.div`

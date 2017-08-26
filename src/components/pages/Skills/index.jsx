@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Title, CircleUl, BigCircleUl } from '../../';
-import PageTemplate from '../../templates/PageTemplate';
-import i18n from '../../../i18n';
+import  FullPage  from '../../atoms/FullPage';
 
-const Wrapper = PageTemplate.extend`
+const Wrapper = FullPage.extend`
   width: 100%;
   color: #FFF;
 `;
@@ -20,8 +19,7 @@ const Circle = styled.div`
   width: 300px;
 `;
 
-const Skills = ({ lang, ...props }) => {
-  const msg = i18n[lang];
+const Skills = ({ msg, ...props }) => {
   return (
     <Wrapper {...props}>
       <Title top="70px">{msg.skills}</Title>

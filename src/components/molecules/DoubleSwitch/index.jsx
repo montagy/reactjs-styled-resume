@@ -22,8 +22,7 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     transform: ${props =>
-      (props.active ? 'translateX(0)' : 'translateX(100%)')
-    };
+      props.active ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform .3s ease;
   }
 `;
@@ -31,22 +30,11 @@ const Active = styled.span`
   color: ${props => (props.active ? '#fff' : 'rgba(0, 0, 0, 0.3)')};
   transition: color 0.3s ease;
 `;
-const DoubleSwitch = ({ lang, nodes, handleSwitch, ...props}) => {
-  let active = lang === 'cn';
-  const switcher = nodes.map((node, i) => {
-    const result = (<Active
-      key={i}
-      active={active}
-    >{node}</Active>);
-    active = !active;
-    return result;
-  });
+const DoubleSwitch = ({ switchLeft, handleSwitch }) => {
   return (
-    <Wrapper
-      active={active}
-      onClick={() => (active ? handleSwitch('en') : handleSwitch('cn'))}
-    >
-      {switcher}
+    <Wrapper active={switchLeft} onClick={handleSwitch}>
+      <Active active={switchLeft}>CN</Active>
+      <Active active={!switchLeft}>EN</Active>
     </Wrapper>
   );
 };

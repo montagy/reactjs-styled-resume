@@ -56,7 +56,7 @@ const CircleUl = ({ ...props }) => {
   const view = 'es6 react redux fp'
     .split(' ')
     .map((name, index) =>
-      <AnimateLi key={name} time={-4 * index} bgc={colors[index + 1]}>{name}</AnimateLi>,
+      <AnimateLi key={name} time={-4 * index} bgc={colors[index]}>{name}</AnimateLi>,
     );
   return (
     <Wrapper {...props}>

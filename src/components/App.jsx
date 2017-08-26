@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  Home,
-  About,
-  Skills,
-  Header,
-  Works,
-  Contact,
-  SliderTemplate,
-  FixedNav
-} from '../components';
-import { switchLang } from '../actions';
+import { Header, SliderInstance, FixedNav } from '../components';
+//import { switchLang } from '../actions';
+import languages from '../i18n.js';
 
 const Root = styled.div`
   height: 100%;
@@ -22,6 +14,7 @@ const PAGES = 5;
 class App extends Component {
   state = {
     curPage: 0,
+    switchLeft: true,
   };
   updatePage = debounce(e => {
     if (e.deltaY > 0) {
@@ -44,53 +37,20 @@ class App extends Component {
       curPage: i,
     });
   };
-  handleSwitch = (lang) => {
-    this.props.dispatch(switchLang(lang));
-  }
+  handleSwitchChange = () => {
+    this.setState(prev => ({
+      switchLeft: !prev.switchLeft,
+    }));
+  };
   render() {
-    const { curPage } = this.state;
-    const { lang } = this.props;
-    const pages = [
-      {
-        component: Home,
-        bgc: '#87b0a5',
-      },
-      {
-        component: About,
-        bgc: '#109085',
-      },
-      {
-        component: Skills,
-        bgc: '#4d5e8f',
-      },
-      {
-        component: Works,
-        bgc: '#945c4c',
-      },
-      {
-        component: Contact,
-        bgc: '#4b85a0',
-      },
-    ].map((page, i) => <page.component key={i} bgc={page.bgc} lang={lang} />);
+    const { curPage, switchLeft } = this.state;
     return (
-      <Root
-        onWheel={this.handleWheel}
-      >
-        <Header handleSwitch={this.handleSwitch} lang={lang} />
+      <Root onWheel={this.handleWheel}>
+        <Header handleSwitch={this.handleSwitchChange} switchLeft={switchLeft} />
         <FixedNav index={curPage} handleClick={this.handleIndicate} />
-        <SliderTemplate
-          active={curPage}
-        >
-          {pages}
-        </SliderTemplate>
-    </Root>
+        <SliderInstance index={curPage} msg={languages[switchLeft ? 'cn' : 'en']} />
+      </Root>
     );
   }
 }
-App.propTypes = {
-  lang: PropTypes.string,
-};
-const mapStateToProps = state => ({
-  lang: state.lang,
-});
-export default connect(mapStateToProps)(App);
+export default App;

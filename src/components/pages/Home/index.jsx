@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import i18n from '../../../i18n';
 import { FullPage } from '../../../components';
-import photoJpg from '../../../../public/img/photo.jpg';
 
 const Photo = styled.div`
   border-radius: 50%;
-  background-image: url(${photoJpg});
+  background-image: url(${require('../../../../public/img/photo.jpg')});
   background-size: contain;
   width: 150px;
   height: 150px;
@@ -35,8 +33,7 @@ const DivideLine = styled.p`
 const Line = styled.p`
   margin: 24px 0;
 `;
-const Home = ({ lang = 'cn', ...props }) => {
-  const msg = i18n[lang];
+const Home = ({ msg, ...props }) => {
   return (
     <FullPage
       style={{ padding: '120px 0 0 0', boxSizing: 'border-box' }}

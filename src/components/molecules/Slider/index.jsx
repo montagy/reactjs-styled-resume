@@ -14,12 +14,12 @@ const Content = styled.div`
   transition: transform .5s linear;
 `;
 
-const SliderTemplate = ({ children, active }) => {
+const SliderTemplate = ({ children, index}) => {
   const size = React.Children.count(children);
   const height = window.innerHeight;
   return (
     <Wrapper height={height}>
-      <Content index={active} height={height} size={size}>{children}</Content>
+      <Content index={index} height={height} size={size}>{children}</Content>
     </Wrapper>
   );
 };
