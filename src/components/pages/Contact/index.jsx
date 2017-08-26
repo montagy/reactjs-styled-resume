@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Title } from '../../';
 import PageTemplate from '../../templates/PageTemplate';
+import imgGithub from '../../../../public/img/s_github.svg';
+import imgBlog from '../../../../public/img/s_blog.svg';
+import imgSf from '../../../../public/img/s_sf.svg';
+import imgWb from '../../../../public/img/s_wb.svg';
+import imgZh from '../../../../public/img/s_zh.svg';
 
 const Content = styled.div`
   margin: 30px auto 0 auto;
@@ -37,13 +42,7 @@ const paras = [
   '行路有良友，便是捷径',
   '带上我吧，一起看到更大的世界',
 ];
-const imgs = [
-  'img/s_github.svg',
-  'img/s_sf.svg',
-  'img/s_blog.svg',
-  'img/s_zh.svg',
-  'img/s_wb.svg',
-];
+const imgs = [imgGithub, imgSf, imgBlog, imgZh, imgWb];
 const Contact = ({ ...props }) => {
   const spans = titles.map((title, i) =>
     <Word key={i} color={titleColor[i]}>{title}</Word>,
@@ -51,7 +50,7 @@ const Contact = ({ ...props }) => {
   const ps = paras.map((para, i) => <p key={i}>{para}</p>);
   const icons = imgs.map((img, i) => <a key={i}><img alt="" src={img} /></a>);
   return (
-    <PageTemplate style={{color: '#fff'}} {...props}>
+    <PageTemplate style={{ color: '#fff' }} {...props}>
       <Title top="70px">联系我</Title>
       <Content>
         <p>{spans}</p>

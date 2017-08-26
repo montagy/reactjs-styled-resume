@@ -37,22 +37,32 @@ const Wrapper = styled.ul`
     line-height: 40px;
   }
 `;
-const AnimateLi = styled.li.attrs({
-  time: props => props.index * (-4),
-})`
+const AnimateLi = styled.li`
   animation:
-    ${innerX} 8s cubic-bezier(.36, 0, .64, 1) ${props => `${props.time}s`} infinite alternate,
-    ${innerY} 8s cubic-bezier(.36, 0, .64, 1) ${props => `${props.time + 4}s`} infinite alternate;
+    ${innerX} 8s cubic-bezier(.36, 0, .64, 1) ${props =>
+  `${props.time}s`} infinite alternate,
+    ${innerY} 8s cubic-bezier(.36, 0, .64, 1) ${props =>
+  `${props.time + 4}s`} infinite alternate;
   background-color: ${props => props.bgc || '#000'};
 `;
 
-const CircleUl = ({ ...props }) => (
-  <Wrapper {...props}>
-    <AnimateLi index={1} bgc="rgba(179, 164, 140, .8)">es6</AnimateLi>
-    <AnimateLi index={2} bgc="rgba(171, 209, 220, .8)">react</AnimateLi>
-    <AnimateLi index={3} bgc="rgba(238, 215, 163, .8)">redux</AnimateLi>
-    <AnimateLi index={4} bgc="rgba(207, 184, 178, .8)">fp</AnimateLi>
-  </Wrapper>
-);
+const CircleUl = ({ ...props }) => {
+  const colors = [
+    'rgba(179, 164, 140, .8)',
+    'rgba(171, 209, 220, .8)',
+    'rgba(238, 215, 163, .8)',
+    'rgba(207, 184, 178, .8)',
+  ];
+  const view = 'es6 react redux fp'
+    .split(' ')
+    .map((name, index) =>
+      <AnimateLi key={name} time={-4 * index} bgc={colors[index + 1]}>{name}</AnimateLi>,
+    );
+  return (
+    <Wrapper {...props}>
+      {view}
+    </Wrapper>
+  );
+};
 
 export default CircleUl;
