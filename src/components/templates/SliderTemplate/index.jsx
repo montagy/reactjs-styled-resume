@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FixedNav } from '../../';
 
 const Wrapper = styled.div`
   height: ${props => props.height}px;
@@ -15,20 +14,12 @@ const Content = styled.div`
   transition: transform .5s linear;
 `;
 
-const SliderTemplate = ({
-  header,
-  children,
-  handleClick,
-  active,
-  ...props
-}) => {
+const SliderTemplate = ({ children, active }) => {
   const size = React.Children.count(children);
   const height = window.innerHeight;
   return (
-    <Wrapper height={height} {...props}>
-      {header}
-      <FixedNav index={active} handleClick={handleClick} />
-      <Content index={active} height={height} size={size} >{children}</Content>
+    <Wrapper height={height}>
+      <Content index={active} height={height} size={size}>{children}</Content>
     </Wrapper>
   );
 };
