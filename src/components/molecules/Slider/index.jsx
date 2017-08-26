@@ -2,23 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  height: ${props => props.height}px;
-  overflow: hidden;
+  height: 100%;
 `;
 const Content = styled.div`
-  width: 100%;
-  height: ${props => props.height * props.size}px;
-  margin: 0;
-  overflow: hidden;
   transform: translateY(-${props => props.index * props.height}px);
-  transition: transform .5s linear;
+  transition: transform .5s ease;
 `;
 
 const SliderTemplate = ({ children, index}) => {
   const size = React.Children.count(children);
   const height = window.innerHeight;
   return (
-    <Wrapper height={height}>
+    <Wrapper>
       <Content index={index} height={height} size={size}>{children}</Content>
     </Wrapper>
   );
