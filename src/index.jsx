@@ -1,10 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
-//import { Provider } from 'react-redux';
-//import { createStore, combineReducers } from 'redux';
+import ReactDOM from 'react-dom';
 import { injectGlobal } from 'styled-components';
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
-//import { SWITCH_LANG } from './actions';
 
 injectGlobal`* {
   box-sizing: border-box;
@@ -17,6 +15,9 @@ html, body {
 }
 html, body, p, h1 {
   margin: 0;
+}
+ul {
+  padding: 0;
 }
 body {
   font-family: arial, helvetica, sans-serif;
@@ -31,21 +32,18 @@ a {
   }
 }`;
 
-/*
- *const changeLang = (state = 'cn', action) => {
- *  switch (action.type) {
- *    case SWITCH_LANG:
- *      return action.lang;
- *    default:
- *      return state;
- *  }
- *};
- *const reducers = combineReducers({
- *  lang: changeLang,
- *});
- *const store = createStore(reducers);
- */
-render(
-    <App />,
-  document.getElementById('root'),
-);
+const render = Comp => {
+  ReactDOM.render(
+    <AppContainer>
+      <Comp />
+    </AppContainer>,
+    document.getElementById('root'),
+  );
+};
+render(App);
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
+    render(NextApp);
+  });
+}

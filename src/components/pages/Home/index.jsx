@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { FullPage } from '../../../components';
+import FullPage from '../../atoms/FullPage';
 
+const Wrapper = FullPage.extend`
+`;
 const Photo = styled.div`
   border-radius: 50%;
   background-image: url(${require('../../../../public/img/photo.jpg')});
@@ -12,14 +14,16 @@ const Photo = styled.div`
   margin: 0 auto;
 `;
 const ParaArea = styled.div`
-  max-width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 2em auto;
   color: white;
+  font-size: 1em;
 `;
 const DivideLine = styled.p`
-  font-size: 22px;
-  position: relative;
+  font-size: 1.8em;
+  font-style: italic;
   padding: 20px 0;
+  position: relative;
   &:after {
     content: "";
     position: absolute;
@@ -32,21 +36,19 @@ const DivideLine = styled.p`
 `;
 const Line = styled.p`
   margin: 24px 0;
+  font-size: 1.2em;
 `;
 const Home = ({ msg, ...props }) => {
   return (
-    <FullPage
-      style={{ padding: '120px 0 0 0', boxSizing: 'border-box' }}
-      {...props}
-    >
+    <Wrapper {...props}>
       <Photo />
       <ParaArea>
         <DivideLine>{msg.words}</DivideLine>
         <Line>{msg.name}</Line>
         <Line>{msg.job}</Line>
-        <Line>{msg.contact}:jencean@126.com</Line>
+        <Line>{msg.contact}</Line>
       </ParaArea>
-    </FullPage>
+    </Wrapper>
   );
 };
 Home.propTypes = {

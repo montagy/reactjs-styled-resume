@@ -3,8 +3,8 @@ const language = {
     // home
     name: '我叫苏键',
     words: '世界上对勇气的最大考验是忍受失败而不丧失信心.',
-    job: '我是一名程序员',
-    contact: '我的联系方式',
+    job: '一名程序员',
+    contact: 'jencean@gmail.com',
     // about
     about: '关于我',
     age: '年龄/30',
