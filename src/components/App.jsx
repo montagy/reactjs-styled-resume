@@ -1,12 +1,40 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-//import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Header, SliderInstance, FixedNav } from '../components';
-//import { switchLang } from '../actions';
 import languages from '../i18n.js';
-
+const arrow = keyframes`
+  0% {
+    opacity: 0.8;
+    bottom: 10px;
+  }
+  50% {
+    bottom: 20px;
+    opacity: 1;
+  }
+  80% {
+    bottom: 22px;
+    opacity: 0.4;
+  }
+  100% {
+    bottom: 22px;
+    opacity: 0;
+  }
+`;
+const Arrow = styled.div`
+  display: ${props => props.active ? 'block' : 'none'};
+  position: absolute;
+  bottom: 20px;
+  width: 20px;
+  height: 35px;
+  left: 50%;
+  background-image: url(${require('../../public/img/arrow.svg')});
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: ${arrow} 1.5s ease-in-out infinite;
+  z-index: 999;
+`;
 const Root = styled.div`
   height: 100%;
 `;
@@ -48,6 +76,7 @@ class App extends Component {
       <Root onWheel={this.handleWheel}>
         <Header handleSwitch={this.handleSwitchChange} switchLeft={switchLeft} />
         <FixedNav index={curPage} handleClick={this.handleIndicate} />
+        <Arrow active={curPage < PAGES - 1} />
         <SliderInstance index={curPage} msg={languages[switchLeft ? 'cn' : 'en']} />
       </Root>
     );
