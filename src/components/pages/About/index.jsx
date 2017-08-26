@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { PageTemplate, Title } from '../../';
+import { FullPage, Title } from '../../';
 import i18n from '../../../i18n';
 
 const Content = styled.div`
@@ -65,7 +65,7 @@ const About = ({ bgc, lang, ...props }) => {
     </li>,
   );
   return (
-    <PageTemplate style={{ color: 'white' }} bgc={bgc} {...props}>
+    <FullPage style={{ color: 'white' }} bgc={bgc} {...props}>
       <Title>{msg.about}</Title>
       <Content>
         <StyledUl>{lis}</StyledUl>
@@ -75,7 +75,7 @@ const About = ({ bgc, lang, ...props }) => {
           <p>{msg.para3}</p>
         </Info>
       </Content>
-    </PageTemplate>
+    </FullPage>
   );
 };
 About.propTypes = {

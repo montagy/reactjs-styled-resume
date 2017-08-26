@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Title } from '../../';
-import PageTemplate from '../../templates/PageTemplate';
+import { FullPage } from '../../';
 
 const Content = styled.div`
   margin: 30px auto 0 auto;
@@ -52,7 +52,7 @@ const Contact = ({ ...props }) => {
   const ps = paras.map((para, i) => <p key={i}>{para}</p>);
   const icons = imgs.map((img, i) => <a key={i}><img alt="" src={img} /></a>);
   return (
-    <PageTemplate style={{ color: '#fff' }} {...props}>
+    <FullPage style={{ color: '#fff' }} {...props}>
       <Title top="70px">联系我</Title>
       <Content>
         <p>{spans}</p>
@@ -61,7 +61,7 @@ const Contact = ({ ...props }) => {
           {icons}
         </Bottom>
       </Content>
-    </PageTemplate>
+    </FullPage>
   );
 };
 

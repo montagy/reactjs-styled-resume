@@ -21,7 +21,7 @@ html, body, p, h1 {
 body {
   font-family: arial, helvetica, sans-serif;
   background-color: color(var(--baseColor) b(+10%));
-  overflow-x: hidden;
+  overflow: hidden;
   line-height: 1.5;
 }
 a {

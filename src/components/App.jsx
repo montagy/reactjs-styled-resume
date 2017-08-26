@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   Home,
   About,
@@ -14,6 +15,9 @@ import {
 } from '../components';
 import { switchLang } from '../actions';
 
+const Root = styled.div`
+  height: 100%;
+`;
 const PAGES = 5;
 class App extends Component {
   state = {
@@ -69,7 +73,7 @@ class App extends Component {
       },
     ].map((page, i) => <page.component key={i} bgc={page.bgc} lang={lang} />);
     return (
-      <div
+      <Root
         onWheel={this.handleWheel}
       >
         <Header handleSwitch={this.handleSwitch} lang={lang} />
@@ -79,7 +83,7 @@ class App extends Component {
         >
           {pages}
         </SliderTemplate>
-    </div>
+    </Root>
     );
   }
 }

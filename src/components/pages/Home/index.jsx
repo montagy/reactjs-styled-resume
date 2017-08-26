@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import i18n from '../../../i18n';
-import { PageTemplate } from '../../../components';
+import { FullPage } from '../../../components';
 import photoJpg from '../../../../public/img/photo.jpg';
 
 const Photo = styled.div`
@@ -38,7 +38,7 @@ const Line = styled.p`
 const Home = ({ lang = 'cn', ...props }) => {
   const msg = i18n[lang];
   return (
-    <PageTemplate
+    <FullPage
       style={{ padding: '120px 0 0 0', boxSizing: 'border-box' }}
       {...props}
     >
@@ -49,7 +49,7 @@ const Home = ({ lang = 'cn', ...props }) => {
         <Line>{msg.job}</Line>
         <Line>{msg.contact}:jencean@126.com</Line>
       </ParaArea>
-    </PageTemplate>
+    </FullPage>
   );
 };
 Home.propTypes = {

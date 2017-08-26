@@ -1,6 +1,7 @@
 // atoms
 export Indicator from './atoms/Indicator';
 export Title from './atoms/Title';
+export FullPage from './atoms/FullPage';
 
 // molecules
 export BigCircleUl from './molecules/BigCircleUl';
@@ -22,7 +23,6 @@ export Skills from './pages/Skills';
 export Works from './pages/Works';
 
 // templates
-export PageTemplate from './templates/PageTemplate';
 export SliderTemplate from './templates/SliderTemplate';
 
 // App
